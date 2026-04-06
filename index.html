@@ -1,0 +1,2096 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Vam Fashion – Premium Clothing Brand in Mumbai</title>
+  <meta name="description" content="Vam Fashion – Mumbai's premium clothing destination in Andheri East. Shop Men's Wear, Casual Wear & Party Wear. Trusted by 300+ happy customers. Order on WhatsApp or visit our store today." />
+  <meta name="keywords" content="Vam Fashion, Mumbai fashion, Andheri East clothing, men's wear Mumbai, party wear, casual wear, premium fashion Mumbai" />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Montserrat:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+
+  <style>
+    /* ═══════════════════════════════════════════
+       CSS VARIABLES & RESET
+    ═══════════════════════════════════════════ */
+    :root {
+      --black: #0a0a0a;
+      --off-black: #111111;
+      --dark: #1a1a1a;
+      --mid: #2a2a2a;
+      --charcoal: #3a3a3a;
+      --grey: #888888;
+      --light-grey: #cccccc;
+      --off-white: #f5f5f0;
+      --white: #ffffff;
+      --gold: #c9a84c;
+      --gold-light: #e2c272;
+      --gold-dark: #9e7a2e;
+      --gold-muted: rgba(201,168,76,0.15);
+
+      --ff-display: 'Cormorant Garamond', serif;
+      --ff-body: 'Montserrat', sans-serif;
+
+      --transition: 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+      --transition-fast: 0.2s ease;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; font-size: 16px; }
+
+    body {
+      background: var(--black);
+      color: var(--white);
+      font-family: var(--ff-body);
+      font-weight: 300;
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    img { display: block; width: 100%; object-fit: cover; }
+    a { text-decoration: none; color: inherit; }
+    ul { list-style: none; }
+
+    /* ═══════════════════════════════════════════
+       SCROLLBAR
+    ═══════════════════════════════════════════ */
+    ::-webkit-scrollbar { width: 4px; }
+    ::-webkit-scrollbar-track { background: var(--black); }
+    ::-webkit-scrollbar-thumb { background: var(--gold); border-radius: 2px; }
+
+    /* ═══════════════════════════════════════════
+       UTILITY
+    ═══════════════════════════════════════════ */
+    .section-tag {
+      display: inline-block;
+      font-family: var(--ff-body);
+      font-size: 0.65rem;
+      font-weight: 700;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 1rem;
+    }
+
+    .section-title {
+      font-family: var(--ff-display);
+      font-size: clamp(2.2rem, 5vw, 3.8rem);
+      font-weight: 400;
+      line-height: 1.1;
+      color: var(--white);
+    }
+
+    .section-title em {
+      font-style: italic;
+      color: var(--gold-light);
+    }
+
+    .gold-line {
+      width: 60px;
+      height: 1px;
+      background: linear-gradient(90deg, var(--gold), transparent);
+      margin: 1.5rem 0;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.6rem;
+      padding: 0.9rem 2rem;
+      font-family: var(--ff-body);
+      font-size: 0.7rem;
+      font-weight: 600;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      border: none;
+      cursor: pointer;
+      transition: var(--transition);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .btn-primary {
+      background: var(--gold);
+      color: var(--black);
+    }
+
+    .btn-primary::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: var(--white);
+      opacity: 0;
+      transition: var(--transition-fast);
+    }
+
+    .btn-primary:hover::after { opacity: 0.15; }
+    .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 30px rgba(201,168,76,0.4); }
+
+    .btn-outline {
+      background: transparent;
+      color: var(--white);
+      border: 1px solid rgba(255,255,255,0.4);
+    }
+
+    .btn-outline:hover {
+      border-color: var(--gold);
+      color: var(--gold);
+      transform: translateY(-2px);
+    }
+
+    .btn-whatsapp {
+      background: #25D366;
+      color: var(--white);
+    }
+
+    .btn-whatsapp:hover { background: #1ebe5d; transform: translateY(-2px); box-shadow: 0 8px 30px rgba(37,211,102,0.4); }
+
+    /* ═══════════════════════════════════════════
+       FADE-IN ANIMATION
+    ═══════════════════════════════════════════ */
+    .fade-up {
+      opacity: 0;
+      transform: translateY(40px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+
+    .fade-up.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .fade-up-d1 { transition-delay: 0.1s; }
+    .fade-up-d2 { transition-delay: 0.2s; }
+    .fade-up-d3 { transition-delay: 0.3s; }
+    .fade-up-d4 { transition-delay: 0.4s; }
+    .fade-up-d5 { transition-delay: 0.5s; }
+    .fade-up-d6 { transition-delay: 0.6s; }
+
+    /* ═══════════════════════════════════════════
+       NAVBAR
+    ═══════════════════════════════════════════ */
+    #navbar {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 1000;
+      padding: 1.2rem 4%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      transition: var(--transition);
+    }
+
+    #navbar.scrolled {
+      background: rgba(10,10,10,0.95);
+      backdrop-filter: blur(20px);
+      border-bottom: 1px solid rgba(201,168,76,0.15);
+      padding: 0.8rem 4%;
+    }
+
+    .nav-logo {
+      font-family: var(--ff-display);
+      font-size: 1.8rem;
+      font-weight: 500;
+      letter-spacing: 0.08em;
+      color: var(--white);
+    }
+
+    .nav-logo span { color: var(--gold); }
+
+    .nav-links {
+      display: flex;
+      gap: 2.5rem;
+      align-items: center;
+    }
+
+    .nav-links a {
+      font-size: 0.65rem;
+      font-weight: 600;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--light-grey);
+      transition: var(--transition-fast);
+      position: relative;
+    }
+
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      bottom: -4px; left: 0;
+      width: 0; height: 1px;
+      background: var(--gold);
+      transition: var(--transition-fast);
+    }
+
+    .nav-links a:hover { color: var(--white); }
+    .nav-links a:hover::after { width: 100%; }
+
+    .nav-cta {
+      padding: 0.55rem 1.3rem;
+      font-size: 0.62rem;
+      font-weight: 600;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      background: var(--gold);
+      color: var(--black);
+      border: none;
+      cursor: pointer;
+      transition: var(--transition-fast);
+    }
+
+    .nav-cta:hover { background: var(--gold-light); }
+
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      padding: 4px;
+    }
+
+    .hamburger span {
+      display: block;
+      width: 24px; height: 1px;
+      background: var(--white);
+      transition: var(--transition);
+    }
+
+    /* ═══════════════════════════════════════════
+       MOBILE MENU
+    ═══════════════════════════════════════════ */
+    #mobile-menu {
+      position: fixed;
+      top: 0; right: -100%;
+      width: min(320px, 85vw);
+      height: 100vh;
+      background: var(--off-black);
+      z-index: 999;
+      padding: 5rem 2.5rem 2.5rem;
+      transition: right 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+      border-left: 1px solid rgba(201,168,76,0.2);
+    }
+
+    #mobile-menu.open { right: 0; }
+
+    .mobile-menu-links { display: flex; flex-direction: column; gap: 1.5rem; }
+
+    .mobile-menu-links a {
+      font-size: 1.1rem;
+      font-weight: 400;
+      letter-spacing: 0.1em;
+      color: var(--light-grey);
+      border-bottom: 1px solid rgba(255,255,255,0.05);
+      padding-bottom: 1rem;
+      transition: color var(--transition-fast);
+    }
+
+    .mobile-menu-links a:hover { color: var(--gold); }
+
+    .overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.7);
+      z-index: 998;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.4s;
+    }
+
+    .overlay.visible { opacity: 1; pointer-events: all; }
+
+    /* ═══════════════════════════════════════════
+       HERO SECTION
+    ═══════════════════════════════════════════ */
+    #hero {
+      position: relative;
+      height: 100svh;
+      min-height: 600px;
+      display: flex;
+      align-items: center;
+      overflow: hidden;
+    }
+
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(125deg, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.4) 60%, rgba(0,0,0,0.7) 100%),
+        url('https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=1600&q=80') center/cover no-repeat;
+    }
+
+    .hero-bg::after {
+      content: '';
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      height: 200px;
+      background: linear-gradient(to top, var(--black), transparent);
+    }
+
+    /* Animated gold particles */
+    .hero-particles {
+      position: absolute;
+      inset: 0;
+      overflow: hidden;
+      pointer-events: none;
+    }
+
+    .particle {
+      position: absolute;
+      width: 1px;
+      background: linear-gradient(to bottom, transparent, var(--gold), transparent);
+      animation: fall linear infinite;
+      opacity: 0.3;
+    }
+
+    @keyframes fall {
+      0% { transform: translateY(-100px); opacity: 0; }
+      10% { opacity: 0.3; }
+      90% { opacity: 0.3; }
+      100% { transform: translateY(110vh); opacity: 0; }
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      width: 100%;
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 0 4%;
+      padding-top: 80px;
+    }
+
+    .hero-eyebrow {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin-bottom: 1.5rem;
+      animation: fadeInLeft 0.8s ease 0.3s both;
+    }
+
+    .hero-eyebrow-line { width: 40px; height: 1px; background: var(--gold); }
+
+    .hero-eyebrow-text {
+      font-size: 0.65rem;
+      font-weight: 600;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: var(--gold);
+    }
+
+    .hero-title {
+      font-family: var(--ff-display);
+      font-size: clamp(3rem, 7.5vw, 6.5rem);
+      font-weight: 300;
+      line-height: 1.05;
+      color: var(--white);
+      max-width: 750px;
+      animation: fadeInLeft 0.8s ease 0.5s both;
+    }
+
+    .hero-title em {
+      font-style: italic;
+      color: var(--gold-light);
+      display: block;
+    }
+
+    .hero-sub {
+      margin-top: 1.5rem;
+      font-size: 0.85rem;
+      font-weight: 300;
+      letter-spacing: 0.12em;
+      color: rgba(255,255,255,0.65);
+      max-width: 400px;
+      animation: fadeInLeft 0.8s ease 0.7s both;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      margin-top: 2.5rem;
+      animation: fadeInLeft 0.8s ease 0.9s both;
+    }
+
+    .hero-scroll {
+      position: absolute;
+      bottom: 2.5rem;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.5rem;
+      z-index: 2;
+      animation: bounce 2s infinite;
+    }
+
+    .hero-scroll span {
+      font-size: 0.55rem;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: var(--grey);
+    }
+
+    .scroll-line {
+      width: 1px;
+      height: 50px;
+      background: linear-gradient(to bottom, var(--gold), transparent);
+    }
+
+    @keyframes bounce {
+      0%, 100% { transform: translateX(-50%) translateY(0); }
+      50% { transform: translateX(-50%) translateY(6px); }
+    }
+
+    @keyframes fadeInLeft {
+      from { opacity: 0; transform: translateX(-30px); }
+      to { opacity: 1; transform: translateX(0); }
+    }
+
+    /* ═══════════════════════════════════════════
+       MARQUEE TICKER
+    ═══════════════════════════════════════════ */
+    .marquee-strip {
+      background: var(--gold);
+      overflow: hidden;
+      padding: 0.7rem 0;
+    }
+
+    .marquee-inner {
+      display: flex;
+      animation: marquee 30s linear infinite;
+      white-space: nowrap;
+      width: max-content;
+    }
+
+    .marquee-item {
+      font-size: 0.6rem;
+      font-weight: 700;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--black);
+      padding: 0 2rem;
+    }
+
+    .marquee-dot { color: var(--black); opacity: 0.4; }
+
+    @keyframes marquee {
+      from { transform: translateX(0); }
+      to { transform: translateX(-50%); }
+    }
+
+    /* ═══════════════════════════════════════════
+       FEATURED COLLECTION
+    ═══════════════════════════════════════════ */
+    #collection {
+      padding: 6rem 4%;
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+
+    .collection-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      margin-bottom: 3.5rem;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+    }
+
+    .collection-tabs {
+      display: flex;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+    }
+
+    .tab-btn {
+      padding: 0.55rem 1.3rem;
+      font-size: 0.62rem;
+      font-weight: 600;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      background: transparent;
+      color: var(--grey);
+      border: 1px solid var(--charcoal);
+      cursor: pointer;
+      transition: var(--transition-fast);
+    }
+
+    .tab-btn.active, .tab-btn:hover {
+      background: var(--gold);
+      color: var(--black);
+      border-color: var(--gold);
+    }
+
+    .collection-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1.5px;
+    }
+
+    .collection-grid .card-lg {
+      grid-column: span 2;
+      grid-row: span 2;
+    }
+
+    .product-card {
+      position: relative;
+      overflow: hidden;
+      background: var(--dark);
+      aspect-ratio: 3/4;
+      cursor: pointer;
+    }
+
+    .product-card.card-lg { aspect-ratio: auto; }
+
+    .product-card img {
+      height: 100%;
+      transition: transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    }
+
+    .product-card:hover img { transform: scale(1.07); }
+
+    .product-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(0,0,0,0.85) 0%, transparent 50%);
+      transition: var(--transition);
+    }
+
+    .product-card:hover .product-overlay {
+      background: linear-gradient(to top, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0.2) 60%);
+    }
+
+    .product-info {
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      padding: 1.5rem;
+      transform: translateY(5px);
+      transition: var(--transition);
+    }
+
+    .product-card:hover .product-info { transform: translateY(0); }
+
+    .product-category {
+      font-size: 0.58rem;
+      font-weight: 600;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 0.3rem;
+    }
+
+    .product-name {
+      font-family: var(--ff-display);
+      font-size: 1.3rem;
+      font-weight: 400;
+      color: var(--white);
+      line-height: 1.2;
+    }
+
+    .product-action {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      margin-top: 0.8rem;
+      opacity: 0;
+      transform: translateY(8px);
+      transition: var(--transition);
+      font-size: 0.6rem;
+      font-weight: 600;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--gold);
+    }
+
+    .product-card:hover .product-action { opacity: 1; transform: translateY(0); }
+
+    .product-badge {
+      position: absolute;
+      top: 1rem; left: 1rem;
+      padding: 0.3rem 0.8rem;
+      font-size: 0.55rem;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+    }
+
+    .badge-new { background: var(--white); color: var(--black); }
+    .badge-hot { background: var(--gold); color: var(--black); }
+
+    /* ═══════════════════════════════════════════
+       BEST SELLERS
+    ═══════════════════════════════════════════ */
+    #bestsellers {
+      padding: 6rem 4%;
+      background: var(--off-black);
+      border-top: 1px solid rgba(201,168,76,0.1);
+      border-bottom: 1px solid rgba(201,168,76,0.1);
+    }
+
+    .bestsellers-inner {
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+
+    .bestsellers-header {
+      text-align: center;
+      margin-bottom: 4rem;
+    }
+
+    .bestsellers-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2rem;
+    }
+
+    .seller-card {
+      background: var(--dark);
+      border: 1px solid rgba(255,255,255,0.05);
+      transition: var(--transition);
+      overflow: hidden;
+    }
+
+    .seller-card:hover {
+      border-color: rgba(201,168,76,0.3);
+      transform: translateY(-4px);
+      box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+    }
+
+    .seller-img {
+      position: relative;
+      overflow: hidden;
+      aspect-ratio: 3/4;
+    }
+
+    .seller-img img { transition: transform 0.8s ease; }
+    .seller-card:hover .seller-img img { transform: scale(1.05); }
+
+    .limited-tag {
+      position: absolute;
+      top: 1rem; right: 1rem;
+      padding: 0.3rem 0.8rem;
+      font-size: 0.55rem;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      background: rgba(201,168,76,0.9);
+      color: var(--black);
+      animation: pulse 2s infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.7; }
+    }
+
+    .seller-details {
+      padding: 1.3rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .seller-name {
+      font-family: var(--ff-display);
+      font-size: 1.1rem;
+      font-weight: 400;
+      color: var(--white);
+    }
+
+    .seller-sub {
+      font-size: 0.6rem;
+      color: var(--grey);
+      letter-spacing: 0.1em;
+      margin-top: 0.2rem;
+    }
+
+    .seller-price {
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--gold);
+      font-family: var(--ff-display);
+    }
+
+    .seller-wa-btn {
+      width: 100%;
+      padding: 0.85rem;
+      background: transparent;
+      border: none;
+      border-top: 1px solid rgba(255,255,255,0.06);
+      color: var(--grey);
+      font-size: 0.6rem;
+      font-weight: 600;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: var(--transition-fast);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+    }
+
+    .seller-wa-btn:hover { background: #25D366; color: var(--white); }
+
+    /* ═══════════════════════════════════════════
+       URGENCY BANNER
+    ═══════════════════════════════════════════ */
+    .urgency-banner {
+      background: linear-gradient(135deg, var(--gold-dark), var(--gold), var(--gold-dark));
+      padding: 1.5rem 4%;
+      text-align: center;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 1.5rem;
+      flex-wrap: wrap;
+    }
+
+    .urgency-text {
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--black);
+    }
+
+    .urgency-btn {
+      padding: 0.55rem 1.5rem;
+      background: var(--black);
+      color: var(--gold);
+      font-size: 0.62rem;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      border: none;
+      cursor: pointer;
+      transition: var(--transition-fast);
+    }
+
+    .urgency-btn:hover { background: var(--off-black); }
+
+    /* ═══════════════════════════════════════════
+       ABOUT SECTION
+    ═══════════════════════════════════════════ */
+    #about {
+      padding: 7rem 4%;
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 5rem;
+      align-items: center;
+    }
+
+    .about-images {
+      position: relative;
+    }
+
+    .about-img-main {
+      aspect-ratio: 3/4;
+      overflow: hidden;
+    }
+
+    .about-img-main img { height: 100%; }
+
+    .about-img-accent {
+      position: absolute;
+      bottom: -2rem;
+      right: -2rem;
+      width: 55%;
+      aspect-ratio: 1;
+      overflow: hidden;
+      border: 4px solid var(--black);
+    }
+
+    .about-img-accent img { height: 100%; }
+
+    .about-stat-badge {
+      position: absolute;
+      top: 2rem; left: -2rem;
+      background: var(--gold);
+      color: var(--black);
+      padding: 1.2rem 1.5rem;
+      text-align: center;
+      z-index: 2;
+    }
+
+    .stat-number {
+      font-family: var(--ff-display);
+      font-size: 2.2rem;
+      font-weight: 600;
+      line-height: 1;
+      display: block;
+    }
+
+    .stat-label {
+      font-size: 0.55rem;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      display: block;
+      margin-top: 0.2rem;
+    }
+
+    .about-content p {
+      font-size: 0.88rem;
+      color: rgba(255,255,255,0.65);
+      line-height: 1.9;
+      margin-bottom: 1rem;
+    }
+
+    .about-features {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+      margin-top: 2rem;
+    }
+
+    .about-feature {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.8rem;
+    }
+
+    .feature-icon {
+      width: 32px;
+      height: 32px;
+      min-width: 32px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: 1px solid var(--gold);
+      color: var(--gold);
+      font-size: 0.75rem;
+    }
+
+    .feature-text {
+      font-size: 0.72rem;
+      color: rgba(255,255,255,0.65);
+      line-height: 1.5;
+    }
+
+    .feature-text strong {
+      display: block;
+      color: var(--white);
+      font-weight: 600;
+      font-size: 0.78rem;
+      margin-bottom: 0.15rem;
+    }
+
+    /* ═══════════════════════════════════════════
+       REVIEWS
+    ═══════════════════════════════════════════ */
+    #reviews {
+      padding: 6rem 4%;
+      background: var(--off-black);
+    }
+
+    .reviews-inner { max-width: 1400px; margin: 0 auto; }
+
+    .reviews-header { text-align: center; margin-bottom: 4rem; }
+
+    .reviews-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1.5rem;
+    }
+
+    .review-card {
+      background: var(--dark);
+      border: 1px solid rgba(255,255,255,0.05);
+      padding: 2rem;
+      position: relative;
+      transition: var(--transition);
+    }
+
+    .review-card::before {
+      content: '"';
+      position: absolute;
+      top: 1rem; right: 1.5rem;
+      font-family: var(--ff-display);
+      font-size: 4rem;
+      color: var(--gold);
+      opacity: 0.2;
+      line-height: 1;
+    }
+
+    .review-card:hover {
+      border-color: rgba(201,168,76,0.3);
+      transform: translateY(-4px);
+    }
+
+    .review-stars {
+      display: flex;
+      gap: 3px;
+      margin-bottom: 1rem;
+    }
+
+    .star { color: var(--gold); font-size: 0.8rem; }
+
+    .review-text {
+      font-size: 0.82rem;
+      color: rgba(255,255,255,0.6);
+      line-height: 1.8;
+      margin-bottom: 1.5rem;
+      font-style: italic;
+      font-family: var(--ff-display);
+      font-size: 1rem;
+    }
+
+    .reviewer {
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+    }
+
+    .reviewer-avatar {
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      overflow: hidden;
+      border: 1px solid rgba(201,168,76,0.3);
+      flex-shrink: 0;
+    }
+
+    .reviewer-avatar img { height: 100%; }
+
+    .reviewer-name {
+      font-size: 0.75rem;
+      font-weight: 600;
+      color: var(--white);
+    }
+
+    .reviewer-loc {
+      font-size: 0.6rem;
+      color: var(--grey);
+      letter-spacing: 0.05em;
+    }
+
+    /* ═══════════════════════════════════════════
+       INSTAGRAM SECTION
+    ═══════════════════════════════════════════ */
+    #instagram {
+      padding: 6rem 4%;
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+
+    .insta-header { text-align: center; margin-bottom: 3rem; }
+
+    .insta-handle {
+      font-size: 0.7rem;
+      color: var(--gold);
+      letter-spacing: 0.15em;
+      margin-top: 0.5rem;
+    }
+
+    .insta-grid {
+      display: grid;
+      grid-template-columns: repeat(6, 1fr);
+      gap: 4px;
+    }
+
+    .insta-item {
+      aspect-ratio: 1;
+      overflow: hidden;
+      position: relative;
+      cursor: pointer;
+    }
+
+    .insta-item img { transition: transform 0.6s ease; height: 100%; }
+    .insta-item:hover img { transform: scale(1.1); }
+
+    .insta-hover {
+      position: absolute;
+      inset: 0;
+      background: rgba(0,0,0,0.6);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      transition: var(--transition-fast);
+    }
+
+    .insta-item:hover .insta-hover { opacity: 1; }
+
+    .insta-hover-icon { color: var(--white); font-size: 1.5rem; }
+
+    /* ═══════════════════════════════════════════
+       WHY CHOOSE US
+    ═══════════════════════════════════════════ */
+    #why {
+      padding: 6rem 4%;
+      background: var(--dark);
+    }
+
+    .why-inner {
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+
+    .why-header { text-align: center; margin-bottom: 4rem; }
+
+    .why-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 2px;
+    }
+
+    .why-card {
+      background: var(--off-black);
+      padding: 3rem 2rem;
+      text-align: center;
+      border: 1px solid rgba(255,255,255,0.03);
+      transition: var(--transition);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .why-card::after {
+      content: '';
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      height: 2px;
+      background: linear-gradient(90deg, transparent, var(--gold), transparent);
+      transform: scaleX(0);
+      transition: var(--transition);
+    }
+
+    .why-card:hover::after { transform: scaleX(1); }
+    .why-card:hover { background: var(--dark); transform: translateY(-4px); }
+
+    .why-icon {
+      font-size: 2.5rem;
+      margin-bottom: 1.5rem;
+      display: block;
+    }
+
+    .why-title {
+      font-family: var(--ff-display);
+      font-size: 1.3rem;
+      font-weight: 400;
+      color: var(--white);
+      margin-bottom: 0.8rem;
+    }
+
+    .why-desc {
+      font-size: 0.78rem;
+      color: var(--grey);
+      line-height: 1.7;
+    }
+
+    /* ═══════════════════════════════════════════
+       CONTACT SECTION
+    ═══════════════════════════════════════════ */
+    #contact {
+      padding: 6rem 4%;
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 5rem;
+      align-items: start;
+    }
+
+    .contact-info-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 1.2rem;
+      margin-bottom: 2rem;
+    }
+
+    .contact-icon-wrap {
+      width: 44px;
+      height: 44px;
+      min-width: 44px;
+      border: 1px solid rgba(201,168,76,0.3);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--gold);
+      font-size: 1rem;
+    }
+
+    .contact-label {
+      font-size: 0.6rem;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 0.3rem;
+    }
+
+    .contact-value {
+      font-size: 0.88rem;
+      color: rgba(255,255,255,0.75);
+      line-height: 1.5;
+    }
+
+    .contact-map {
+      background: var(--dark);
+      aspect-ratio: 4/3;
+      border: 1px solid rgba(201,168,76,0.15);
+      overflow: hidden;
+      position: relative;
+    }
+
+    .map-placeholder {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 1rem;
+      color: var(--grey);
+    }
+
+    .map-pin { font-size: 3rem; color: var(--gold); }
+
+    .map-label {
+      font-size: 0.7rem;
+      letter-spacing: 0.15em;
+      text-align: center;
+    }
+
+    .map-address {
+      font-family: var(--ff-display);
+      font-size: 1.2rem;
+      color: var(--white);
+    }
+
+    .map-open-btn {
+      padding: 0.6rem 1.5rem;
+      background: var(--gold);
+      color: var(--black);
+      font-size: 0.62rem;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      border: none;
+      cursor: pointer;
+      margin-top: 0.5rem;
+      transition: var(--transition-fast);
+    }
+
+    .map-open-btn:hover { background: var(--gold-light); }
+
+    /* Timings */
+    .timing-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0.5rem;
+      margin-top: 0.5rem;
+    }
+
+    .timing-day { font-size: 0.75rem; color: rgba(255,255,255,0.5); }
+    .timing-time { font-size: 0.75rem; color: var(--white); text-align: right; }
+
+    /* ═══════════════════════════════════════════
+       FOOTER
+    ═══════════════════════════════════════════ */
+    footer {
+      background: var(--black);
+      border-top: 1px solid rgba(201,168,76,0.15);
+      padding: 4rem 4% 2rem;
+    }
+
+    .footer-inner {
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+
+    .footer-top {
+      display: grid;
+      grid-template-columns: 1.5fr 1fr 1fr 1fr;
+      gap: 3rem;
+      margin-bottom: 3rem;
+    }
+
+    .footer-brand-name {
+      font-family: var(--ff-display);
+      font-size: 2rem;
+      font-weight: 400;
+      margin-bottom: 1rem;
+    }
+
+    .footer-brand-name span { color: var(--gold); }
+
+    .footer-tagline {
+      font-size: 0.75rem;
+      color: var(--grey);
+      line-height: 1.7;
+      margin-bottom: 1.5rem;
+    }
+
+    .footer-social {
+      display: flex;
+      gap: 0.8rem;
+    }
+
+    .social-icon {
+      width: 36px;
+      height: 36px;
+      border: 1px solid rgba(255,255,255,0.1);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.85rem;
+      color: var(--grey);
+      transition: var(--transition-fast);
+      cursor: pointer;
+    }
+
+    .social-icon:hover { border-color: var(--gold); color: var(--gold); }
+
+    .footer-col-title {
+      font-size: 0.62rem;
+      font-weight: 700;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 1.5rem;
+    }
+
+    .footer-links { display: flex; flex-direction: column; gap: 0.7rem; }
+
+    .footer-links a {
+      font-size: 0.78rem;
+      color: var(--grey);
+      transition: var(--transition-fast);
+    }
+
+    .footer-links a:hover { color: var(--white); padding-left: 4px; }
+
+    .footer-bottom {
+      border-top: 1px solid rgba(255,255,255,0.05);
+      padding-top: 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    .footer-copy {
+      font-size: 0.65rem;
+      color: var(--grey);
+      letter-spacing: 0.05em;
+    }
+
+    .footer-bottom-links {
+      display: flex;
+      gap: 1.5rem;
+    }
+
+    .footer-bottom-links a {
+      font-size: 0.62rem;
+      color: var(--grey);
+      transition: color var(--transition-fast);
+    }
+
+    .footer-bottom-links a:hover { color: var(--gold); }
+
+    /* ═══════════════════════════════════════════
+       STICKY WHATSAPP BUTTON
+    ═══════════════════════════════════════════ */
+    #wa-float {
+      position: fixed;
+      bottom: 2rem;
+      right: 2rem;
+      z-index: 999;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      gap: 0.8rem;
+    }
+
+    .wa-bubble {
+      background: var(--dark);
+      border: 1px solid rgba(255,255,255,0.1);
+      padding: 0.7rem 1.2rem;
+      font-size: 0.72rem;
+      color: var(--white);
+      white-space: nowrap;
+      border-radius: 2px;
+      opacity: 0;
+      transform: translateX(10px);
+      transition: var(--transition);
+      pointer-events: none;
+    }
+
+    #wa-float:hover .wa-bubble { opacity: 1; transform: translateX(0); }
+
+    .wa-btn {
+      width: 56px;
+      height: 56px;
+      background: #25D366;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5rem;
+      cursor: pointer;
+      box-shadow: 0 4px 20px rgba(37,211,102,0.4);
+      transition: var(--transition-fast);
+      animation: wa-pulse 3s infinite;
+      color: var(--white);
+      text-decoration: none;
+    }
+
+    .wa-btn:hover { transform: scale(1.1); box-shadow: 0 8px 30px rgba(37,211,102,0.6); }
+
+    @keyframes wa-pulse {
+      0%, 100% { box-shadow: 0 4px 20px rgba(37,211,102,0.4); }
+      50% { box-shadow: 0 4px 30px rgba(37,211,102,0.7), 0 0 0 10px rgba(37,211,102,0.05); }
+    }
+
+    /* ═══════════════════════════════════════════
+       RESPONSIVE
+    ═══════════════════════════════════════════ */
+    @media (max-width: 1024px) {
+      .collection-grid { grid-template-columns: repeat(2, 1fr); }
+      .collection-grid .card-lg { grid-column: span 2; }
+      .bestsellers-grid { grid-template-columns: repeat(2, 1fr); }
+      .reviews-grid { grid-template-columns: repeat(2, 1fr); }
+      .why-grid { grid-template-columns: repeat(2, 1fr); }
+      .insta-grid { grid-template-columns: repeat(3, 1fr); }
+      .footer-top { grid-template-columns: 1fr 1fr; }
+      .about-grid { gap: 3rem; }
+    }
+
+    @media (max-width: 768px) {
+      .nav-links, .nav-cta { display: none; }
+      .hamburger { display: flex; }
+      .collection-grid { grid-template-columns: 1fr; }
+      .collection-grid .card-lg { grid-column: span 1; }
+      .bestsellers-grid { grid-template-columns: 1fr; }
+      .reviews-grid { grid-template-columns: 1fr; }
+      .why-grid { grid-template-columns: 1fr; }
+      .about-grid { grid-template-columns: 1fr; }
+      .contact-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+      .about-img-accent { display: none; }
+      .about-stat-badge { left: 0; }
+      .footer-top { grid-template-columns: 1fr 1fr; }
+      .insta-grid { grid-template-columns: repeat(3, 1fr); }
+      .hero-actions { flex-direction: column; }
+      .hero-actions .btn { width: 100%; justify-content: center; }
+    }
+
+    @media (max-width: 480px) {
+      .insta-grid { grid-template-columns: repeat(2, 1fr); }
+      .footer-top { grid-template-columns: 1fr; }
+      .why-grid { grid-template-columns: 1fr; }
+      .about-features { grid-template-columns: 1fr; }
+      .footer-bottom { flex-direction: column; text-align: center; }
+      .collection-header { flex-direction: column; align-items: flex-start; }
+      .bestsellers-grid { grid-template-columns: 1fr; }
+      .reviews-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ═══ OVERLAY ═══ -->
+  <div class="overlay" id="overlay" onclick="closeMobileMenu()"></div>
+
+  <!-- ═══ MOBILE MENU ═══ -->
+  <nav id="mobile-menu">
+    <ul class="mobile-menu-links">
+      <li><a href="#collection" onclick="closeMobileMenu()">Collection</a></li>
+      <li><a href="#bestsellers" onclick="closeMobileMenu()">Best Sellers</a></li>
+      <li><a href="#about" onclick="closeMobileMenu()">About</a></li>
+      <li><a href="#reviews" onclick="closeMobileMenu()">Reviews</a></li>
+      <li><a href="#contact" onclick="closeMobileMenu()">Contact</a></li>
+      <li>
+        <a href="https://wa.me/919999999999?text=Hi%20Vam%20Fashion!%20I'd%20like%20to%20place%20an%20order."
+           style="color:#25D366;" onclick="closeMobileMenu()">
+          💬 Order on WhatsApp
+        </a>
+      </li>
+    </ul>
+  </nav>
+
+  <!-- ═══ NAVBAR ═══ -->
+  <header id="navbar">
+    <a href="#" class="nav-logo">Vam <span>Fashion</span></a>
+    <ul class="nav-links">
+      <li><a href="#collection">Collection</a></li>
+      <li><a href="#bestsellers">Best Sellers</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#reviews">Reviews</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <a class="nav-cta"
+       href="https://wa.me/919999999999?text=Hi%20Vam%20Fashion!%20I%20want%20to%20order."
+       target="_blank">
+      Order Now
+    </a>
+    <div class="hamburger" onclick="toggleMobileMenu()">
+      <span id="h1"></span>
+      <span id="h2"></span>
+      <span id="h3"></span>
+    </div>
+  </header>
+
+  <!-- ═══ HERO ═══ -->
+  <section id="hero">
+    <div class="hero-bg"></div>
+
+    <div class="hero-particles" id="particles"></div>
+
+    <div class="hero-content">
+      <div class="hero-eyebrow">
+        <div class="hero-eyebrow-line"></div>
+        <span class="hero-eyebrow-text">Mumbai's Premium Fashion Destination</span>
+      </div>
+      <h1 class="hero-title">
+        Elevate Your Style
+        <em>with Vam Fashion</em>
+      </h1>
+      <p class="hero-sub">Premium fashion crafted for the modern Mumbai lifestyle.</p>
+      <div class="hero-actions">
+        <a href="#collection" class="btn btn-primary">
+          View Collection
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+        <a href="https://wa.me/919999999999?text=Hi%20Vam%20Fashion!%20I%27d%20like%20to%20place%20an%20order."
+           target="_blank" class="btn btn-whatsapp">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.11.549 4.09 1.507 5.812L0 24l6.335-1.493A11.954 11.954 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.885 0-3.651-.486-5.187-1.336l-.372-.222-3.86.91.926-3.765-.243-.386A9.964 9.964 0 012 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg>
+          Order on WhatsApp
+        </a>
+      </div>
+    </div>
+
+    <div class="hero-scroll">
+      <span>Scroll</span>
+      <div class="scroll-line"></div>
+    </div>
+  </section>
+
+  <!-- ═══ MARQUEE ═══ -->
+  <div class="marquee-strip">
+    <div class="marquee-inner" id="marquee">
+      <span class="marquee-item">New Collection 2025 <span class="marquee-dot">◆</span></span>
+      <span class="marquee-item">Men's Wear <span class="marquee-dot">◆</span></span>
+      <span class="marquee-item">Casual Wear <span class="marquee-dot">◆</span></span>
+      <span class="marquee-item">Party Wear <span class="marquee-dot">◆</span></span>
+      <span class="marquee-item">Visit Us in Andheri East, Mumbai <span class="marquee-dot">◆</span></span>
+      <span class="marquee-item">Order on WhatsApp <span class="marquee-dot">◆</span></span>
+      <span class="marquee-item">Trusted by 300+ Customers <span class="marquee-dot">◆</span></span>
+      <!-- Duplicate for seamless loop -->
+      <span class="marquee-item">New Collection 2025 <span class="marquee-dot">◆</span></span>
+      <span class="marquee-item">Men's Wear <span class="marquee-dot">◆</span></span>
+      <span class="marquee-item">Casual Wear <span class="marquee-dot">◆</span></span>
+      <span class="marquee-item">Party Wear <span class="marquee-dot">◆</span></span>
+      <span class="marquee-item">Visit Us in Andheri East, Mumbai <span class="marquee-dot">◆</span></span>
+      <span class="marquee-item">Order on WhatsApp <span class="marquee-dot">◆</span></span>
+      <span class="marquee-item">Trusted by 300+ Customers <span class="marquee-dot">◆</span></span>
+    </div>
+  </div>
+
+  <!-- ═══ FEATURED COLLECTION ═══ -->
+  <section id="collection">
+    <div style="max-width:1400px; margin:0 auto; padding:6rem 4%;">
+      <div class="collection-header">
+        <div>
+          <span class="section-tag fade-up">Featured Collection</span>
+          <h2 class="section-title fade-up fade-up-d1">Curated for <em>Your Style</em></h2>
+        </div>
+        <div class="collection-tabs fade-up fade-up-d2">
+          <button class="tab-btn active" onclick="filterCollection('all',this)">All</button>
+          <button class="tab-btn" onclick="filterCollection('mens',this)">Men's Wear</button>
+          <button class="tab-btn" onclick="filterCollection('casual',this)">Casual</button>
+          <button class="tab-btn" onclick="filterCollection('party',this)">Party</button>
+        </div>
+      </div>
+
+      <div class="collection-grid fade-up fade-up-d2">
+        <!-- Large card -->
+        <div class="product-card card-lg" data-cat="mens">
+          <img src="https://images.unsplash.com/photo-1617137968427-85924c800a22?w=800&q=80" alt="Premium Blazer" />
+          <div class="product-overlay"></div>
+          <div class="product-badge badge-hot">Hot</div>
+          <div class="product-info">
+            <div class="product-category">Men's Wear</div>
+            <div class="product-name">Premium<br>Blazer Collection</div>
+            <div class="product-action">
+              Explore →
+            </div>
+          </div>
+        </div>
+
+        <!-- Small cards -->
+        <div class="product-card" data-cat="casual">
+          <img src="https://images.unsplash.com/photo-1594938298603-c8148c4f30c1?w=600&q=80" alt="Casual Tee" />
+          <div class="product-overlay"></div>
+          <div class="product-badge badge-new">New</div>
+          <div class="product-info">
+            <div class="product-category">Casual Wear</div>
+            <div class="product-name">Modern Casual</div>
+            <div class="product-action">Explore →</div>
+          </div>
+        </div>
+
+        <div class="product-card" data-cat="party">
+          <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=600&q=80" alt="Party Wear" />
+          <div class="product-overlay"></div>
+          <div class="product-info">
+            <div class="product-category">Party Wear</div>
+            <div class="product-name">Evening Luxe</div>
+            <div class="product-action">Explore →</div>
+          </div>
+        </div>
+
+        <div class="product-card" data-cat="mens">
+          <img src="https://images.unsplash.com/photo-1552374196-1ab2a1c593e8?w=600&q=80" alt="Formal Wear" />
+          <div class="product-overlay"></div>
+          <div class="product-badge badge-new">New</div>
+          <div class="product-info">
+            <div class="product-category">Men's Wear</div>
+            <div class="product-name">Formal Edit</div>
+            <div class="product-action">Explore →</div>
+          </div>
+        </div>
+
+        <div class="product-card" data-cat="casual">
+          <img src="https://images.unsplash.com/photo-1469334031218-e382a71b716b?w=600&q=80" alt="Casual Style" />
+          <div class="product-overlay"></div>
+          <div class="product-info">
+            <div class="product-category">Casual Wear</div>
+            <div class="product-name">Street Style</div>
+            <div class="product-action">Explore →</div>
+          </div>
+        </div>
+
+        <div class="product-card" data-cat="party">
+          <img src="https://images.unsplash.com/photo-1525171254930-643fc658b64e?w=600&q=80" alt="Party Look" />
+          <div class="product-overlay"></div>
+          <div class="product-badge badge-hot">Hot</div>
+          <div class="product-info">
+            <div class="product-category">Party Wear</div>
+            <div class="product-name">Night Out</div>
+            <div class="product-action">Explore →</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ BEST SELLERS ═══ -->
+  <section id="bestsellers">
+    <div class="bestsellers-inner">
+      <div class="bestsellers-header">
+        <span class="section-tag fade-up">Trending Now</span>
+        <h2 class="section-title fade-up fade-up-d1">Best <em>Sellers</em></h2>
+        <div class="gold-line" style="margin: 1.5rem auto;"></div>
+      </div>
+
+      <div class="bestsellers-grid">
+
+        <div class="seller-card fade-up fade-up-d1">
+          <div class="seller-img">
+            <img src="https://images.unsplash.com/photo-1600185365926-3a2ce3cdb9eb?w=600&q=80" alt="Slim Fit Chinos" />
+            <span class="limited-tag">⚡ Limited Stock</span>
+          </div>
+          <div class="seller-details">
+            <div>
+              <div class="seller-name">Slim Fit Chinos</div>
+              <div class="seller-sub">Available in 5 colours</div>
+            </div>
+            <div class="seller-price">₹1,299</div>
+          </div>
+          <button class="seller-wa-btn"
+            onclick="window.open('https://wa.me/919999999999?text=Hi!%20I%27m%20interested%20in%20the%20Slim%20Fit%20Chinos.','_blank')">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.11.549 4.09 1.507 5.812L0 24l6.335-1.493A11.954 11.954 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.885 0-3.651-.486-5.187-1.336l-.372-.222-3.86.91.926-3.765-.243-.386A9.964 9.964 0 012 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg>
+            Order on WhatsApp
+          </button>
+        </div>
+
+        <div class="seller-card fade-up fade-up-d2">
+          <div class="seller-img">
+            <img src="https://images.unsplash.com/photo-1602810316498-ab67cf68c8e1?w=600&q=80" alt="Classic White Shirt" />
+            <span class="limited-tag">⚡ Limited Stock</span>
+          </div>
+          <div class="seller-details">
+            <div>
+              <div class="seller-name">Classic Oxford Shirt</div>
+              <div class="seller-sub">Premium cotton blend</div>
+            </div>
+            <div class="seller-price">₹999</div>
+          </div>
+          <button class="seller-wa-btn"
+            onclick="window.open('https://wa.me/919999999999?text=Hi!%20I%27m%20interested%20in%20the%20Classic%20Oxford%20Shirt.','_blank')">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.11.549 4.09 1.507 5.812L0 24l6.335-1.493A11.954 11.954 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.885 0-3.651-.486-5.187-1.336l-.372-.222-3.86.91.926-3.765-.243-.386A9.964 9.964 0 012 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg>
+            Order on WhatsApp
+          </button>
+        </div>
+
+        <div class="seller-card fade-up fade-up-d3">
+          <div class="seller-img">
+            <img src="https://images.unsplash.com/photo-1620799140188-3b2a02fd9a77?w=600&q=80" alt="Party Blazer" />
+            <span class="limited-tag">⚡ Limited Stock</span>
+          </div>
+          <div class="seller-details">
+            <div>
+              <div class="seller-name">Velvet Party Blazer</div>
+              <div class="seller-sub">Statement evening piece</div>
+            </div>
+            <div class="seller-price">₹2,499</div>
+          </div>
+          <button class="seller-wa-btn"
+            onclick="window.open('https://wa.me/919999999999?text=Hi!%20I%27m%20interested%20in%20the%20Velvet%20Party%20Blazer.','_blank')">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.11.549 4.09 1.507 5.812L0 24l6.335-1.493A11.954 11.954 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.885 0-3.651-.486-5.187-1.336l-.372-.222-3.86.91.926-3.765-.243-.386A9.964 9.964 0 012 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg>
+            Order on WhatsApp
+          </button>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ URGENCY BANNER ═══ -->
+  <div class="urgency-banner">
+    <span class="urgency-text">📍 Visit Our Store Today — Andheri East, Mumbai</span>
+    <span class="urgency-text" style="opacity:0.6;">|</span>
+    <span class="urgency-text">Mon – Sun: 10 AM – 9 PM</span>
+    <a href="https://wa.me/919999999999?text=Hi%20Vam%20Fashion!%20I%27d%20like%20to%20visit%20your%20store."
+       target="_blank" class="urgency-btn">Get Directions</a>
+  </div>
+
+  <!-- ═══ ABOUT ═══ -->
+  <section id="about">
+    <div class="about-grid">
+      <div class="about-images fade-up">
+        <div class="about-stat-badge">
+          <span class="stat-number">300+</span>
+          <span class="stat-label">Happy Customers</span>
+        </div>
+        <div class="about-img-main">
+          <img src="https://images.unsplash.com/photo-1441984904996-e0b6ba687e04?w=800&q=80" alt="Vam Fashion Store" />
+        </div>
+        <div class="about-img-accent">
+          <img src="https://images.unsplash.com/photo-1490481651871-ab68de25d43d?w=500&q=80" alt="Fashion Detail" />
+        </div>
+      </div>
+
+      <div class="about-content">
+        <span class="section-tag fade-up">Our Story</span>
+        <h2 class="section-title fade-up fade-up-d1">Born in Mumbai,<br><em>Styled for You</em></h2>
+        <div class="gold-line fade-up fade-up-d2"></div>
+        <p class="fade-up fade-up-d2">
+          Vam Fashion was born from a simple belief — every person deserves to look and feel exceptional, without compromising on price. Rooted in the vibrant fashion culture of Andheri East, Mumbai, we curate styles that speak to the modern urban lifestyle.
+        </p>
+        <p class="fade-up fade-up-d3">
+          From sharp formal blazers to laid-back weekend casuals and show-stopping party ensembles — our collection is designed to make you unforgettable. Trusted by over <strong style="color:var(--gold)">300+ happy customers</strong> across Mumbai and growing.
+        </p>
+        <div class="about-features fade-up fade-up-d4">
+          <div class="about-feature">
+            <div class="feature-icon">✦</div>
+            <div class="feature-text"><strong>Premium Fabrics</strong>Carefully sourced materials for comfort and style.</div>
+          </div>
+          <div class="about-feature">
+            <div class="feature-icon">✦</div>
+            <div class="feature-text"><strong>Affordable Prices</strong>Luxury feel without breaking the bank.</div>
+          </div>
+          <div class="about-feature">
+            <div class="feature-icon">✦</div>
+            <div class="feature-text"><strong>Latest Trends</strong>New arrivals every week. Always ahead.</div>
+          </div>
+          <div class="about-feature">
+            <div class="feature-icon">✦</div>
+            <div class="feature-text"><strong>Local Trust</strong>Mumbai's own. Rooted, reliable, real.</div>
+          </div>
+        </div>
+        <div style="margin-top: 2.5rem;" class="fade-up fade-up-d5">
+          <a href="https://wa.me/919999999999?text=Hi%20Vam%20Fashion!%20I%27d%20like%20to%20know%20more."
+             target="_blank" class="btn btn-primary">
+            Chat With Us
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ REVIEWS ═══ -->
+  <section id="reviews">
+    <div class="reviews-inner">
+      <div class="reviews-header">
+        <span class="section-tag fade-up">Customer Love</span>
+        <h2 class="section-title fade-up fade-up-d1">What Mumbai <em>Says</em></h2>
+        <div class="gold-line" style="margin: 1.5rem auto;"></div>
+      </div>
+
+      <div class="reviews-grid">
+
+        <div class="review-card fade-up fade-up-d1">
+          <div class="review-stars">
+            <span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span>
+          </div>
+          <p class="review-text">Found my go-to store in Mumbai! The blazer I bought from Vam Fashion got me so many compliments at my office party. Quality is exceptional and the price is unbeatable.</p>
+          <div class="reviewer">
+            <div class="reviewer-avatar">
+              <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=80&q=80" alt="Rohit" />
+            </div>
+            <div>
+              <div class="reviewer-name">Rohit Sharma</div>
+              <div class="reviewer-loc">Andheri, Mumbai ✓ Verified Buyer</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="review-card fade-up fade-up-d2">
+          <div class="review-stars">
+            <span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span>
+          </div>
+          <p class="review-text">Ordered on WhatsApp and received the delivery super fast. The casual shirts are premium quality. Vam Fashion is my new favourite brand in Mumbai!</p>
+          <div class="reviewer">
+            <div class="reviewer-avatar">
+              <img src="https://images.unsplash.com/photo-1599566150163-29194dcaad36?w=80&q=80" alt="Aarav" />
+            </div>
+            <div>
+              <div class="reviewer-name">Aarav Mehta</div>
+              <div class="reviewer-loc">Powai, Mumbai ✓ Verified Buyer</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="review-card fade-up fade-up-d3">
+          <div class="review-stars">
+            <span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span>
+          </div>
+          <p class="review-text">Visited the store in Andheri East and the collection is amazing. Great selection, helpful staff, and the prices are so reasonable. Highly recommend!</p>
+          <div class="reviewer">
+            <div class="reviewer-avatar">
+              <img src="https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?w=80&q=80" alt="Priya" />
+            </div>
+            <div>
+              <div class="reviewer-name">Priya Nair</div>
+              <div class="reviewer-loc">Juhu, Mumbai ✓ Verified Buyer</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="review-card fade-up fade-up-d4">
+          <div class="review-stars">
+            <span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span>
+          </div>
+          <p class="review-text">The party wear collection is 🔥. Bought a velvet blazer for a wedding and everyone asked where I got it from. Will keep coming back to Vam Fashion!</p>
+          <div class="reviewer">
+            <div class="reviewer-avatar">
+              <img src="https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?w=80&q=80" alt="Kavya" />
+            </div>
+            <div>
+              <div class="reviewer-name">Kavya Reddy</div>
+              <div class="reviewer-loc">Bandra, Mumbai ✓ Verified Buyer</div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ INSTAGRAM ═══ -->
+  <section id="instagram">
+    <div class="insta-header">
+      <span class="section-tag fade-up">On Instagram</span>
+      <h2 class="section-title fade-up fade-up-d1">Style <em>Moments</em></h2>
+      <p class="insta-handle fade-up fade-up-d2">@vamfashion.mumbai</p>
+    </div>
+
+    <div class="insta-grid fade-up fade-up-d2">
+      <div class="insta-item">
+        <img src="https://images.unsplash.com/photo-1523381210434-271e8be1f52b?w=400&q=80" alt="Style 1" />
+        <div class="insta-hover"><span class="insta-hover-icon">♡</span></div>
+      </div>
+      <div class="insta-item">
+        <img src="https://images.unsplash.com/photo-1512436991641-6745cdb1723f?w=400&q=80" alt="Style 2" />
+        <div class="insta-hover"><span class="insta-hover-icon">♡</span></div>
+      </div>
+      <div class="insta-item">
+        <img src="https://images.unsplash.com/photo-1485462537746-965f33f7f6a7?w=400&q=80" alt="Style 3" />
+        <div class="insta-hover"><span class="insta-hover-icon">♡</span></div>
+      </div>
+      <div class="insta-item">
+        <img src="https://images.unsplash.com/photo-1529139574466-a303027c1d8b?w=400&q=80" alt="Style 4" />
+        <div class="insta-hover"><span class="insta-hover-icon">♡</span></div>
+      </div>
+      <div class="insta-item">
+        <img src="https://images.unsplash.com/photo-1509631179647-0177331693ae?w=400&q=80" alt="Style 5" />
+        <div class="insta-hover"><span class="insta-hover-icon">♡</span></div>
+      </div>
+      <div class="insta-item">
+        <img src="https://images.unsplash.com/photo-1475180098004-ca77a66827be?w=400&q=80" alt="Style 6" />
+        <div class="insta-hover"><span class="insta-hover-icon">♡</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ WHY CHOOSE US ═══ -->
+  <section id="why">
+    <div class="why-inner">
+      <div class="why-header">
+        <span class="section-tag fade-up">Why Vam Fashion</span>
+        <h2 class="section-title fade-up fade-up-d1">The Vam <em>Difference</em></h2>
+        <div class="gold-line" style="margin: 1.5rem auto;"></div>
+      </div>
+
+      <div class="why-grid">
+        <div class="why-card fade-up fade-up-d1">
+          <span class="why-icon">🧵</span>
+          <div class="why-title">Premium Quality</div>
+          <p class="why-desc">Every piece is crafted with carefully selected fabrics that look sharp and feel comfortable all day long.</p>
+        </div>
+        <div class="why-card fade-up fade-up-d2">
+          <span class="why-icon">💰</span>
+          <div class="why-title">Affordable Pricing</div>
+          <p class="why-desc">Luxury fashion should not cost a fortune. We deliver premium looks at prices that make sense for every pocket.</p>
+        </div>
+        <div class="why-card fade-up fade-up-d3">
+          <span class="why-icon">🔥</span>
+          <div class="why-title">Latest Trends</div>
+          <p class="why-desc">New collections arrive every week. We stay ahead of the fashion curve so you always look on-trend.</p>
+        </div>
+        <div class="why-card fade-up fade-up-d4">
+          <span class="why-icon">📍</span>
+          <div class="why-title">Trusted Local Brand</div>
+          <p class="why-desc">Born and built in Mumbai. Over 300+ satisfied customers trust us for their wardrobe needs.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ CONTACT ═══ -->
+  <section id="contact" style="padding: 6rem 4%;">
+    <div style="max-width:1400px; margin:0 auto;">
+      <div style="text-align:center; margin-bottom:4rem;">
+        <span class="section-tag fade-up">Find Us</span>
+        <h2 class="section-title fade-up fade-up-d1">Visit <em>Our Store</em></h2>
+        <div class="gold-line" style="margin:1.5rem auto;"></div>
+      </div>
+
+      <div class="contact-grid">
+        <div>
+          <div class="contact-info-item fade-up fade-up-d1">
+            <div class="contact-icon-wrap">📍</div>
+            <div>
+              <div class="contact-label">Location</div>
+              <div class="contact-value">Shop No. __, [Your Building Name]<br>Andheri East, Mumbai – 400069<br>Maharashtra, India</div>
+            </div>
+          </div>
+
+          <div class="contact-info-item fade-up fade-up-d2">
+            <div class="contact-icon-wrap">📞</div>
+            <div>
+              <div class="contact-label">Phone / WhatsApp</div>
+              <div class="contact-value">+91 99999 99999<br>+91 88888 88888</div>
+            </div>
+          </div>
+
+          <div class="contact-info-item fade-up fade-up-d3">
+            <div class="contact-icon-wrap">🕐</div>
+            <div>
+              <div class="contact-label">Store Timings</div>
+              <div class="contact-value">
+                <div class="timing-grid">
+                  <span class="timing-day">Monday – Friday</span><span class="timing-time">10:00 AM – 9:00 PM</span>
+                  <span class="timing-day">Saturday – Sunday</span><span class="timing-time">10:00 AM – 9:30 PM</span>
+                  <span class="timing-day">Public Holidays</span><span class="timing-time">11:00 AM – 8:00 PM</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="fade-up fade-up-d4" style="display:flex; gap: 1rem; flex-wrap: wrap; margin-top: 1rem;">
+            <a href="https://wa.me/919999999999?text=Hi%20Vam%20Fashion!%20I%27d%20like%20to%20visit%20your%20store."
+               target="_blank" class="btn btn-whatsapp">
+              💬 WhatsApp Us
+            </a>
+            <a href="tel:+919999999999" class="btn btn-outline">📞 Call Now</a>
+          </div>
+        </div>
+
+        <div class="contact-map fade-up fade-up-d3">
+          <div class="map-placeholder">
+            <div class="map-pin">📍</div>
+            <div class="map-label">
+              <div class="map-address">Vam Fashion</div>
+              <p style="font-size:0.75rem; color: var(--grey); margin-top: 0.3rem;">Andheri East, Mumbai – 400069</p>
+            </div>
+            <a href="https://maps.google.com/?q=Andheri+East+Mumbai" target="_blank" class="map-open-btn">
+              Open in Google Maps ↗
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ FOOTER ═══ -->
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-top">
+        <div>
+          <div class="footer-brand-name">Vam <span>Fashion</span></div>
+          <p class="footer-tagline">Premium fashion for the modern Mumbai lifestyle. Curated with care, priced with purpose.</p>
+          <div class="footer-social">
+            <div class="social-icon">f</div>
+            <div class="social-icon">in</div>
+            <div class="social-icon">📷</div>
+            <div class="social-icon">▶</div>
+          </div>
+        </div>
+
+        <div>
+          <div class="footer-col-title">Collections</div>
+          <ul class="footer-links">
+            <li><a href="#collection">Men's Wear</a></li>
+            <li><a href="#collection">Casual Wear</a></li>
+            <li><a href="#collection">Party Wear</a></li>
+            <li><a href="#bestsellers">Best Sellers</a></li>
+            <li><a href="#collection">New Arrivals</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <div class="footer-col-title">Quick Links</div>
+          <ul class="footer-links">
+            <li><a href="#about">About Us</a></li>
+            <li><a href="#reviews">Reviews</a></li>
+            <li><a href="#why">Why Choose Us</a></li>
+            <li><a href="#contact">Contact</a></li>
+            <li><a href="#instagram">Instagram</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <div class="footer-col-title">Order & Visit</div>
+          <ul class="footer-links">
+            <li><a href="https://wa.me/919999999999" target="_blank">WhatsApp Order</a></li>
+            <li><a href="tel:+919999999999">Call: +91 99999 99999</a></li>
+            <li><a href="#">Andheri East, Mumbai</a></li>
+            <li><a href="#">Mon–Sun: 10AM–9PM</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p class="footer-copy">© 2025 Vam Fashion, Mumbai. All rights reserved. Made with ♥ in Mumbai.</p>
+        <div class="footer-bottom-links">
+          <a href="#">Privacy Policy</a>
+          <a href="#">Terms</a>
+          <a href="#">Returns</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ═══ FLOATING WHATSAPP ═══ -->
+  <div id="wa-float">
+    <div class="wa-bubble">💬 Order / Chat with us!</div>
+    <a class="wa-btn"
+       href="https://wa.me/919999999999?text=Hi%20Vam%20Fashion!%20I%27d%20like%20to%20place%20an%20order."
+       target="_blank"
+       title="Chat on WhatsApp">
+      <svg width="26" height="26" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.11.549 4.09 1.507 5.812L0 24l6.335-1.493A11.954 11.954 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.885 0-3.651-.486-5.187-1.336l-.372-.222-3.86.91.926-3.765-.243-.386A9.964 9.964 0 012 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg>
+    </a>
+  </div>
+
+  <!-- ═══ JAVASCRIPT ═══ -->
+  <script>
+    /* --- Navbar scroll --- */
+    const navbar = document.getElementById('navbar');
+    window.addEventListener('scroll', () => {
+      navbar.classList.toggle('scrolled', window.scrollY > 60);
+    });
+
+    /* --- Mobile menu --- */
+    let menuOpen = false;
+    function toggleMobileMenu() {
+      menuOpen = !menuOpen;
+      document.getElementById('mobile-menu').classList.toggle('open', menuOpen);
+      document.getElementById('overlay').classList.toggle('visible', menuOpen);
+      document.body.style.overflow = menuOpen ? 'hidden' : '';
+    }
+    function closeMobileMenu() {
+      menuOpen = false;
+      document.getElementById('mobile-menu').classList.remove('open');
+      document.getElementById('overlay').classList.remove('visible');
+      document.body.style.overflow = '';
+    }
+
+    /* --- Fade-in on scroll --- */
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          e.target.classList.add('visible');
+          observer.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+
+    document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+
+    /* --- Collection filter --- */
+    function filterCollection(cat, btn) {
+      document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      document.querySelectorAll('.product-card').forEach(card => {
+        if (cat === 'all' || card.dataset.cat === cat) {
+          card.style.opacity = '1';
+          card.style.pointerEvents = 'auto';
+          card.style.transform = '';
+        } else {
+          card.style.opacity = '0.2';
+          card.style.pointerEvents = 'none';
+          card.style.transform = 'scale(0.97)';
+        }
+      });
+    }
+
+    /* --- Hero particles --- */
+    const container = document.getElementById('particles');
+    for (let i = 0; i < 18; i++) {
+      const p = document.createElement('div');
+      p.className = 'particle';
+      const height = Math.random() * 80 + 40;
+      p.style.cssText = `
+        left: ${Math.random() * 100}%;
+        height: ${height}px;
+        animation-duration: ${Math.random() * 8 + 6}s;
+        animation-delay: ${Math.random() * 10}s;
+        opacity: ${Math.random() * 0.25 + 0.05};
+      `;
+      container.appendChild(p);
+    }
+
+    /* --- Smooth active nav highlight --- */
+    const sections = document.querySelectorAll('section[id]');
+    const navLinks = document.querySelectorAll('.nav-links a');
+    window.addEventListener('scroll', () => {
+      let current = '';
+      sections.forEach(s => {
+        if (window.scrollY >= s.offsetTop - 120) current = s.id;
+      });
+      navLinks.forEach(a => {
+        a.style.color = a.getAttribute('href') === '#' + current
+          ? 'var(--gold)' : '';
+      });
+    });
+  </script>
+</body>
+</html>
